@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPM ESMP Style Result System</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+<script defer src="login.js"></script> <!-- Ensure login.js is linked -->
+
+<script>
+    // Check if user is logged in
+    function checkLogin() {
+        if (!sessionStorage.getItem("loggedIn")) {
+            window.location.href = "login.html";  // Redirect to login if not logged in
+        }
+    }
+    checkLogin();  // Run login check on page load
+
+    // Logout function
+    function logout() {
+        sessionStorage.removeItem("loggedIn");  // Remove login status
+        window.location.href = "login.html";    // Redirect to login page
+    }
+</script>
+
+<style>
+    .header {
+        background-color: #1f4d57;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .logo {
+        margin-right: 10px;
+    }
+    .header h2 {
+        color: #fff;
+    }
+    .logout-btn {
+        margin-left: auto;
+        padding: 5px 10px;
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="logo.png" alt="UPM Logo" class="logo">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<div class="menu">
+    <a href="#">Examination Result</a>
+</div>
+
+<div class="content">
+    <h3>Examination Result</h3>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Semester Session</th>
+                <th>Total Grade Point</th>
+                <th>Total Credit Hour</th>
+                <th>GPA</th>
+                <th>CGPA</th>
+                <th>View</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2023/2024-1</td>
+                <td>52.00</td>
+                <td>13</td>
+                <td>4.000</td>
+                <td>4.000</td>
+                <td><a href="semester1.html"><button class="view-button">View</button></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2023/2024-2</td>
+                <td>98.25</td>
+                <td>25</td>
+                <td>3.854</td>
+                <td>3.930</td>
+                <td><a href="semester2.html"><button class="view-button">View</button></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2024/2025-1</td>
+                <td>184.27</td>
+                <td>47</td>
+                <td>3.910</td>
+                <td>3.920</td>
+                <td><a href="semester3.html"><button class="view-button">View</button></a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
