@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Semester 1 Results</title>
 <link rel="stylesheet" href="styles.css">
 
+<script defer src="script.js"></script>
+<script defer src="login.js"></script>
+
+<script>
+    // Check if user is logged in
+    function checkLogin() {
+        if (!sessionStorage.getItem("loggedIn")) {
+            window.location.href = "login.html"; 
+        }
+    }
+    checkLogin();  
+
+    // Logout function
+    function logout() {
+        sessionStorage.removeItem("loggedIn");  
+        window.location.href = "login.html";    
+    }
+</script>
+
 <style>
 .button {
     display: inline-block;
     padding: 10px 20px;
-    margin: 10px 0;
+    margin: 20px 0;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
@@ -20,12 +40,72 @@
 
 .button:hover {
     background-color: #45a049;
+    cursor: pointer;
+}
+
+.header {
+    background-color: #1f4d57;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.header h2 {
+    color: #fff;
+}
+
+.logout-btn {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu {
+    margin: 10px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: #1f4d57;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    background-color: #163c44;
+}
+
+.content h3 {
+    margin-top: 20px;
 }
 </style>
 
 </head>
+
 <body>
 
+<!-- Header with logo and logout -->
+<div class="header">
+    <img src="logo.png" alt="UPM Logo" class="logo">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<!-- Menu bar -->
+<div class="menu">
+    <a href="#">Examination Result</a>
+</div>
+
+<!-- Main content -->
 <div class="content">
 <h3>Semester Session : 2023/2024-1</h3>
 
@@ -114,9 +194,10 @@
 
 </table>
 
-<br><br>
-
-<a href="Semester 1.pdf" target="_blank" class="button">Print Examination Slip</a>
+<!-- Print button centered -->
+<div style="text-align: center;">
+    <a href="Semester 1.pdf" target="_blank" class="button">Print Examination Slip</a>
+</div>
 
 </div>
 </div>
